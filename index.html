@@ -16,6 +16,40 @@
         
 
     <h1>Para a Chegada do Benjamin</h1>
+
+    <!-- Exibir o cronômetro de contagem regressiva em um elemento -->
+<p id="demo"></p>
+
+<script>
+// Defina a data em que estamos em contagem regressiva
+var countDownDate = new Date("Mar 5, 2021 10:30:25").getTime();
+
+// Atualize a contagem regressiva a cada 1 segundo
+var x = setInterval(function() {
+
+  // Obtenha a data e hora de hoje
+  var now = new Date().getTime();
+
+  // Encontre a distância entre agora e a data da contagem regressiva
+  var distance = countDownDate - now;
+
+  // Cálculos de tempo para dias, horas, minutos e segundos
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Exibir o resultado no elemento com id = "demo"
+  document.getElementById("demo").innerHTML = days + "Dias " + hours + "Horas "
+  + minutes + "Minutos " + seconds + "Segundos ";
+
+  // Se a contagem regressiva terminar, escreva algum texto
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "Benjamin Chegou !!!!";
+  }
+}, 1000);
+</script>
     
 
     
