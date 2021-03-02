@@ -3,14 +3,11 @@
 body{
     background-color: #b8e994;
 }
-
-img{
-position: relative;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-margin-top: 100px;
-}
+p {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 0px;
+  }
 
 .tit {
     color: #daa520;

@@ -11,10 +11,7 @@
 </head>
 <body>
     <h1 class="tit">Faltam</h1>
-       
-    <img src="http://gen.sendtric.com/countdown/manaa9wr7e" style="display: block;" />
-        
-
+    <p id="demo"></p>
     <h1>Para a Chegada do Benjamin</h1>
 
     <!-- Exibir o cronômetro de contagem regressiva em um elemento -->
@@ -41,7 +38,8 @@ var x = setInterval(function() {
 
   // Exibir o resultado no elemento com id = "demo"
   document.getElementById("demo").innerHTML = days + "Dias " + hours + "Horas "
-  + minutes + "Minutos " + seconds + "Segundos ";
+  + minutes + "Min. " + seconds + "Seg. ";
+
 
   // Se a contagem regressiva terminar, escreva algum texto
   if (distance < 0) {
