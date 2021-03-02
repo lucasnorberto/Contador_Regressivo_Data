@@ -1,21 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
 
-body{
-    background-color: #b8e994;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-p {
-    text-align: center;
-    font-size: 60px;
-    margin-top: 0px;
-  }
+body{
+    background-color: #000;
+    color: #fff;
+    
+}
+.intro{
+    height: 100vh;
+    background: linear-gradient(0deg, #5d5c54 30%, transparent 10%), url(https://i.ibb.co/Ks600QC/parede.png);
+    background-size: cover;
 
-.tit {
-    color: #daa520;
 }
 h1{
+    font-family: 'Akaya Telivigala', cursive;
+    color: #5a8496;
     text-align: center;
+    font-size: 3em;
+
+}
+p{
     font-family: 'Akaya Telivigala', cursive;
     color: #daa520;
-    font-size: 4rem;
-    text-shadow: 3px 3px 3px rgb(133, 124, 124);
+    font-size: 3rem;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+table{
+    border: 1px solid black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 0px;
+   
+}
+
+table td{
+    border: 1px solid black;
+    padding: 5px;
+    
+ 
 }
