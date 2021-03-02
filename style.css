@@ -28,6 +28,7 @@ p{
     font-family: 'Akaya Telivigala', cursive;
     color: #daa520;
     font-size: 3rem;
+    margin: 50px;
     margin-block-start: 0em;
     margin-block-end: 0em;
     margin-inline-start: 0px;
@@ -49,10 +50,23 @@ table td{
     background-color: #5a8496;
     border: 1px solid#5a8496;
     padding: 5px;
-    
- 
+   
+
+}
+td#diac{
+    border-top-left-radius: 10px;
 }
 
+td#diab{
+    border-bottom-left-radius: 10px;
+}
+td#segc{
+    border-top-right-radius: 10px;
+}
+
+td#segb{
+    border-bottom-right-radius: 10px;
+}
 table#quadro{
     background-color: blanchedalmond;
 }
