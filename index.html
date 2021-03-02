@@ -56,10 +56,10 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Exibir o resultado no elemento com id = "demo "
-  document.getElementById("days").innerHTML = days + " " ;
-  document.getElementById("hours").innerHTML = hours + " " ;
-  document.getElementById("minutes").innerHTML = minutes + "" ;
-  document.getElementById("seconds").innerHTML = seconds + " " ;
+  document.getElementById("days").innerHTML = (days >9) ? (''+days) : ('0'+days);    // days + " " ;
+  document.getElementById("hours").innerHTML = (hours >9) ? (''+hours) : ('0'+hours);//hours + " " ;
+  document.getElementById("minutes").innerHTML = (minutes >9) ? (''+minutes) : ('0'+minutes);//minutes + "" ;
+  document.getElementById("seconds").innerHTML = (seconds >9) ? (''+seconds) : ('0'+seconds);//seconds + " " ;
 
 
   // Se a contagem regressiva terminar, escreva algum texto
