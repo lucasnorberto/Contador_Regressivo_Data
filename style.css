@@ -32,10 +32,12 @@ p{
     margin-block-end: 0em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    text-shadow: 5px 5px 4px black;
 }
 
 table{
-    border: 1px solid black;
+    border: 1px solid#5a8496;
+    border-radius: 10px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -44,7 +46,8 @@ table{
 }
 
 table td{
-    border: 1px solid black;
+    background-color: #5a8496;
+    border: 1px solid#5a8496;
     padding: 5px;
     
  
