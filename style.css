@@ -22,6 +22,7 @@ h1{
     text-align: center;
     font-size: 3em;
     text-shadow: 5px 5px 4px black;
+  
 
 }
 p{
@@ -43,6 +44,7 @@ table{
     margin-left: auto;
     margin-right: auto;
     border-spacing: 0px;
+    
    
 }
 
@@ -66,7 +68,4 @@ td#segc{
 
 td#segb{
     border-bottom-right-radius: 10px;
-}
-table#quadro{
-    background-color: blanchedalmond;
 }
