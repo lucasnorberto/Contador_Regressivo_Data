@@ -1,71 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
+
 body{
-    background-color: #000;
-    color: #fff;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Poppins';
+    background-color: rgb(200, 225, 244);
+    color: rgb(3, 2, 2);
 }
-.intro{
-    height: 100vh;
-    background: linear-gradient(0deg, #5d5c54 30%, transparent 10%), url(https://i.ibb.co/Ks600QC/parede.png);
-    background-size: cover;
 
-}
 h1{
-    font-family: 'Akaya Telivigala', cursive;
-    color: #daa520;
+    font-weight: normal;
+    font-size: 4rem;
+    margin-top: 4.5rem;
+}
+
+.countdown-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.text{
+    font-weight: bold;
+    font-size: 6rem;
+    line-height: 1;
+    margin: 1rem 2rem;
+}
+
+.countdown-el{
     text-align: center;
-    font-size: 3em;
-    text-shadow: 5px 5px 4px black;
-  
-
 }
-p{
-    font-family: 'Akaya Telivigala', cursive;
-    color: #daa520;
-    font-size: 3rem;
-    margin: 50px;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    text-shadow: 5px 5px 4px black;
-}
-
-table{
-    border: 1px solid#5a8496;
-    border-radius: 10px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    border-spacing: 0px;
-    
-   
-}
-
-table td{
-    background-color: #5a8496;
-    border: 1px solid#5a8496;
-    padding: 5px;
-   
-
-}
-td#diac{
-    border-top-left-radius: 10px;
-}
-
-td#diab{
-    border-bottom-left-radius: 10px;
-}
-td#segc{
-    border-top-right-radius: 10px;
-}
-
-td#segb{
-    border-bottom-right-radius: 10px;
+.countdown-el span{
+    font-size: 1.5rem;
 }
