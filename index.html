@@ -37,7 +37,10 @@
     <div class="container">
       <div class="row">
         <div class="col text-center">
-         <h1> Contador Regressivo </h1>
+          <h1 class="dateinformada" id="datadigitada"> Informe uma data</h1>
+            <form>
+            <input type="datetime-local">
+            </form>
         </div>
       </div>
       <div class="row">
@@ -48,8 +51,10 @@
       
           <script>
             // Define a data de contagem regressiva
-            const countdownDate = new Date("2023-10-30T23:59:59").getTime();
-      
+            // const countdownDate = new Date("2023-10-30T23:59:59").getTime();
+            const countdownDate =  document.getElementById("datadigitada");
+           
+
             // Atualiza o contador a cada segundo
             const countdownInterval = setInterval(() => {
               // Obtém a data atual
