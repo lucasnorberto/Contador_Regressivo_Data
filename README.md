@@ -1,5 +1,9 @@
 Contator extraido de https://codingartistweb.com/2021/09/responsive-countdown-to-a-certain-date-javascript/
 
+TUTORIAL: https://www.youtube.com/watch?v=KZZIdaUktCc&t=74s
+
+Copiando este trabalho para posteriormente trabalhar em cima para somar uma data expecifica menos uma outra. 
+
 Contagem regressiva responsiva para uma determinada data | Javascript
 
 Olá e bem-vindo ao tutorial de hoje. Hoje vamos criar uma contagem regressiva para uma data específica. O design desta contagem regressiva será responsivo. Para este tutorial, usamos HTML, CSS e Javascript. A contagem regressiva mostra 4 caixas diferentes exibindo dias, horas, minutos e segundos restantes para a data. A contagem regressiva continua atualizando a cada segundo. Vamos começar com o tutorial.
