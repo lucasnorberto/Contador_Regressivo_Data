@@ -1,47 +1,52 @@
- // Formatar data padão Brasileiro
- let data = new Date();
- function formatarData(data){
-   let newDate = new Date(data);
-   return`${newDate.getDate()}/ ${newDate.getMonth()+1}/ ${newDate.getFullYear()}`;
- }
+let dayBox = document.getElementById("day-box");
+let hrBox = document.getElementById("hr-box");
+let minBox = document.getElementById("min-box");
+let secBox = document.getElementById("sec-box");
 
- console.log(formatarData(data));
+//Format: Date(year, month, day, hour, minute)
+//Year is counter from 0 to 11
+let endDate = new Date(2023, 8, 5, 16, 30);
+//Output value in milliseconds
+let endTime = endDate.getTime();
 
+function countdown() {
+  let todayDate = new Date();
+  //Output value in milliseconds
+  let todayTime = todayDate.getTime();
 
- document.write(Date());
+  let remainingTime = endTime - todayTime;
 
+  //60sec => 1000 milliseconds
+  let oneMin = 60 * 1000;
+  //1hr => 60 minutes
+  let oneHr = 60 * oneMin;
+  //1 day => 24 hours
+  let oneDay = 24 * oneHr;
 
+  //Function to format number if it is single digit
+  let addZeroes = (num) => (num < 10 ? `0${num}` : num);
 
+  //If end dat is before today date
+  if (endTime < todayTime) {
+    clearInterval(i);
+    document.querySelector(
+      ".countdown"
+    ).innerHTML = `<h1>Countdown had expired!</h1>`;
+  }
+  //If end date is not before today date
+  else {
+    //Calculating remaining days, hrs,mins ,secs
+    let daysLeft = Math.floor(remainingTime / oneDay);
+    let hrsLeft = Math.floor((remainingTime % oneDay) / oneHr);
+    let minsLeft = Math.floor((remainingTime % oneHr) / oneMin);
+    let secsLeft = Math.floor((remainingTime % oneMin) / 1000);
 
-
-
-
-
- // Define a data de contagem regressiva
- const countdownDate = new Date("2022-10-30T23:59:59").getTime();
-          
-
- // Atualiza o contador a cada segundo
- const countdownInterval = setInterval(() => {
-   // Obtém a data atual
-   const now = new Date().getTime();
-
-   // Calcula a diferença entre a data atual e a data de contagem regressiva
-   const distance = countdownDate - now;
-
-   // Calcula os dias, horas, minutos e segundos restantes
-   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-   // Exibe o resultado na página
-   const countdownElement = document.getElementById("countdown");
-   countdownElement.innerHTML = `Faltam ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos para o fim do ano.`;
-
-   // Para a contagem regressiva quando a data é alcançada
-   if (distance < 0) {
-     clearInterval(countdownInterval);
-     countdownElement.innerHTML = "Feliz Ano Novo!";
-   }
- }, 1000);
+    //Displaying Valurs
+    dayBox.textContent = addZeroes(daysLeft);
+    hrBox.textContent = addZeroes(hrsLeft);
+    minBox.textContent = addZeroes(minsLeft);
+    secBox.textContent = addZeroes(secsLeft);
+  }
+}
+let i = setInterval(countdown, 1000);
+countdown();
