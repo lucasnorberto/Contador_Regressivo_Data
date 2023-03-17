@@ -1,153 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown</title>
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-    <!DOCTYPE html>
 <html>
-<head>
-	<title>Contador Regressivo</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			font-size: 16px;
-			margin: 0;
-			padding: 0;
-			background-color: #f2f2f2;
-		}
-		.container {
-			max-width: 800px;
-			margin: 0 auto;
-			padding: 20px;
-			background-color: #fff;
-			box-shadow: 0 0 10px rgba(0,0,0,0.2);
-		}
-		.form-group {
-			margin-bottom: 10px;
-		}
-		label {
-			display: block;
-			margin-bottom: 5px;
-		}
-		input[type="number"] {
-			width: 100%;
-			padding: 10px;
-			font-size: 16px;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-		}
-		button {
-			padding: 10px 20px;
-			font-size: 16px;
-			background-color: #007bff;
-			color: #fff;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-		}
-		#countdown {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin-top: 20px;
-			font-size: 30px;
-		}
-		#days,
-		#hours,
-		#minutes,
-		#seconds {
-			display: inline-block;
-			width: 50px;
-			height: 50px;
-			margin: 0 10px;
-			background-color: #007bff;
-			color: #fff;
-			font-size: 30px;
-			text-align: center;
-			line-height: 50px;
-			border-radius: 5px;
-		}
-	</style>
-</head>
-<body>
-	<div class="container">
-		<h1>Contador Regressivo</h1>
-		<form id="countdown-form">
-			<div class="form-group">
-				<label for="day">Dia:</label>
-				<input type="number" id="day" name
-                ="day" min="1" max="31" required>
-            </div>
-            <div class="form-group">
-                <label for="month">Mês:</label>
-                <input type="number" id="month" name="month" min="1" max="12" required>
-            </div>
-            <div class="form-group">
-                <label for="year">Ano:</label>
-                <input type="number" id="year" name="year" min="2022" required>
-            </div>
-            <div class="form-group">
-                <label for="hour">Hora:</label>
-                <input type="number" id="hour" name="hour" min="0" max="23" required>
-            </div>
-            <div class="form-group">
-                <label for="minute">Minuto:</label>
-                <input type="number" id="minute" name="minute" min="0" max="59" required>
-            </div>
-            <button type="submit">Iniciar Contagem Regressiva</button>
-        </form>
-        <div id="countdown"></div>
+  <head>
+    <meta charset="UTF-8">
+    <title>Contador de Tempo</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Contador de Tempo</h1>
+      <div class="input-group">
+        <label for="date-input">Informe a data:</label>
+        <input type="datetime-local" id="date-input">
+      </div>
+      <button id="start-button">Iniciar Contagem</button>
+      <div class="countdown-timer">
+        <div class="countdown-unit">
+          <span id="days">00</span>
+          <span>dias</span>
+        </div>
+        <div class="countdown-unit">
+          <span id="hours">00</span>
+          <span>horas</span>
+        </div>
+        <div class="countdown-unit">
+          <span id="minutes">00</span>
+          <span>minutos</span>
+        </div>
+        <div class="countdown-unit">
+          <span id="seconds">00</span>
+          <span>segundos</span>
+        </div>
+      </div>
+      <div class="elapsed-time">
+        <span>Tempo decorrido: </span>
+        <span id="elapsed-time">0</span>
+        <span>segundos</span>
+      </div>
+      <button id="theme-button">Dark</button>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script>
-        // seleciona o formulário e adiciona um ouvinte para o envio
-        const form = document.querySelector('#countdown-form');
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            // coleta as entradas do usuário
-            const day = document.querySelector('#day').value;
-            const month = document.querySelector('#month').value - 1; // moment.js usa o índice de zero para janeiro
-            const year = document.querySelector('#year').value;
-            const hour = document.querySelector('#hour').value;
-            const minute = document.querySelector('#minute').value;
-            // cria um objeto Moment.js a partir da entrada do usuário
-            const countdownDate = moment([year, month, day, hour, minute]);
-            // atualiza o contador regressivo a cada segundo
-            setInterval(function() {
-    // calcula a diferença entre a data atual e a data do contador regressivo
-    const now = moment();
-    const diff = countdownDate.diff(now);
-    // converte a diferença em dias, horas, minutos e segundos
-    const duration = moment.duration(diff);
-    const days = Math.floor(duration.asDays());
-    const hours = duration.hours();
-    const minutes = duration.minutes();
-    const seconds = duration.seconds();
-    // atualiza a página com os dias, horas, minutos e segundos restantes
-    document.querySelector('#days').textContent = days;
-    document.querySelector('#hours').textContent = hours;
-    document.querySelector('#minutes').textContent = minutes;
-    document.querySelector('#seconds').textContent = seconds;
-    // se o contador regressivo acabou, mostra uma mensagem
-    if (diff <= 0) {
-        clearInterval();
-        document.querySelector('#countdown').textContent = 'Contador regressivo concluído!';
-    }
-}, 1000);
-
-        });
-    </script>
-</body>
-</html>
-
-    <!-- Script -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
