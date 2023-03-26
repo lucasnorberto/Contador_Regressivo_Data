@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>Contador de Tempo</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Contador Regressivo de Data</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Contador de Tempo</h1>
-      <div class="input-group">
-        <label for="date-input">Informe a data:</label>
-        <input type="datetime-local" id="date-input">
-      </div>
-      <button id="start-button">Iniciar Contagem</button>
-      <div class="countdown-timer">
-        <div class="countdown-unit">
-          <span id="days">00</span>
-          <span>dias</span>
-        </div>
-        <div class="countdown-unit">
-          <span id="hours">00</span>
-          <span>horas</span>
-        </div>
-        <div class="countdown-unit">
-          <span id="minutes">00</span>
-          <span>minutos</span>
-        </div>
-        <div class="countdown-unit">
-          <span id="seconds">00</span>
-          <span>segundos</span>
-        </div>
-      </div>
-      <div class="elapsed-time">
-        <span>Tempo decorrido: </span>
-        <span id="elapsed-time">0</span>
-        <span>segundos</span>
-      </div>
-      <button id="theme-button">Dark</button>
-    </div>
-    <script src="script.js"></script>
+    <h1>Contador Regressivo de Data</h1>
+    <p id="countdown"></p>
+
+    <script>
+      // Define a data de contagem regressiva
+      const countdownDate = new Date("2023-12-31T23:59:59").getTime();
+
+      // Atualiza o contador a cada segundo
+      const countdownInterval = setInterval(() => {
+        // Obtém a data atual
+        const now = new Date().getTime();
+
+        // Calcula a diferença entre a data atual e a data de contagem regressiva
+        const distance = countdownDate - now;
+
+        // Calcula os dias, horas, minutos e segundos restantes
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Exibe o resultado na página
+        const countdownElement = document.getElementById("countdown");
+        countdownElement.innerHTML = `Faltam ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos para o fim do ano.`;
+
+        // Para a contagem regressiva quando a data é alcançada
+        if (distance < 0) {
+          clearInterval(countdownInterval);
+          countdownElement.innerHTML = "Feliz Ano Novo!";
+        }
+      }, 1000);
+    </script>
   </body>
 </html>

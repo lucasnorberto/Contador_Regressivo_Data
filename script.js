@@ -1,60 +1,24 @@
-function calculateTimeRemaining() {
-    const targetDate = new Date(document.getElementById("target-date").value).getTime();
-    const now = new Date().getTime();
-    const timeRemaining = targetDate - now;
-  
-    if (timeRemaining <= 0) {
-      document.getElementById("days").textContent = "00";
-      document.getElementById("hours").textContent = "00";
-      document.getElementById("minutes").textContent = "00";
-      document.getElementById("seconds").textContent = "00";
-      return;
-    }
-  
-    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24)).toString().padStart(2, "0");
-    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, "0");
-    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, "0");
-    const seconds = Math.floor (timeRemaining % (1000 * 60)) / 1000).toString().padStart(2, "0");
+const form = document.querySelector('form');
+const input = form.querySelector('#data-hora');
+const iniciarBtn = form.querySelector('#iniciar');
+const contadorDiv = document.querySelector('#contador');
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
-    }
-    
-    function updateElapsedTime() {
-    let elapsedTime = parseInt(document.getElementById("elapsed-time").textContent);
-    document.getElementById("elapsed-time").textContent = elapsedTime + 1;
-    }
-    
-    let intervalId = setInterval(updateElapsedTime, 1000);
-    
-    function toggleTheme() {
-    const body = document.querySelector("body");
-    const themeButton = document.getElementById("theme-button");
-    
-    body.classList.toggle("dark");
-    
-    if (body.classList.contains("dark")) {
-    themeButton.textContent = "Light";
-    } else {
-    themeButton.textContent = "Dark";
-    }
-    }
+let dataHora;
 
-    let countdownIntervalId;
-    let elapsedTimeIntervalId;
+function iniciarContador() {
+  dataHora = new Date(input.value).getTime();
 
-function startCountdown() {
-  clearInterval(countdownIntervalId);
-  clearInterval(elapsedTimeIntervalId);
+  setInterval(() => {
+    const agora = new Date().getTime();
+    const diff = dataHora - agora;
 
-  const countdownDate = new Date(document.getElementById("date-input").value).getTime();
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diff % (1000 * 60)) / 1000);
 
-  countdownIntervalId = setInterval(updateCountdown, 1000, countdownDate);
-  elapsedTimeIntervalId = setInterval(updateElapsedTime, 1000);
+    contadorDiv.innerHTML = `Faltam ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos.`;
+  }, 1000);
 }
 
-document.getElementById("start-button").addEventListener("click", startCountdown);
-
-  
+iniciarBtn.addEventListener('click', iniciarContador);
